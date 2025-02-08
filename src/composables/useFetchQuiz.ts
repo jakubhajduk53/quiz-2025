@@ -1,7 +1,7 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
 
-type QuizResponse = {
+export type QuizResponse = {
   response_code: number;
   results: Array<{
     category: string;
