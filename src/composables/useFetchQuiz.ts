@@ -22,7 +22,7 @@ export const useFetchQuiz = () => {
     loading.value = true;
     error.value = null;
     try {
-      const response = await fetch("https://opentdb.com/api.php?amount=9");
+      const response = await fetch("https://opentdb.com/api.php?amount=1");
       if (!response.ok) {
         throw new Error("Failed to fetch quiz data");
       }
@@ -35,6 +35,5 @@ export const useFetchQuiz = () => {
     }
   };
 
-  fetchQuiz();
-  return result;
+  return { result, fetchQuiz, loading, error };
 };
