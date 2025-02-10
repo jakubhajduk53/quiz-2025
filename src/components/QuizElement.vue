@@ -8,17 +8,17 @@ interface Question {
   incorrect_answers: Array<string>;
 }
 
-const props = defineProps<Question>();
+defineProps<Question>();
 </script>
 
 <template>
   <div class="flex flex-col">
-    <div>{{ props.type }}</div>
-    <div>{{ props.difficulty }}</div>
-    <div>{{ props.category }}</div>
-    <div>{{ props.question }}</div>
-    <div>{{ props.correct_answer }}</div>
-    <div>{{ props.incorrect_answers }}</div>
+    <div>{{ type }}</div>
+    <div>{{ difficulty }}</div>
+    <div>{{ category }}</div>
+    <div>{{ question }}</div>
+    <div>{{ correct_answer }}</div>
+    <div>{{ incorrect_answers }}</div>
   </div>
 </template>
 
