@@ -19,6 +19,20 @@ onMounted(async () => {
       />
     </template>
     <p v-else>Ładowanie...</p>
+    <div class="flex gap-5">
+      <button
+        class="cursor-pointer p-5 bg-red-50"
+        @click="quizStore.previousQuestion"
+      >
+        PREVIOUS
+      </button>
+      <button
+        class="cursor-pointer p-5 bg-red-50"
+        @click="quizStore.nextQuestion"
+      >
+        NEXT
+      </button>
+    </div>
   </div>
 </template>
 
