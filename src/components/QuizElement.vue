@@ -1,25 +1,26 @@
 <script setup lang="ts">
-interface Question {
-  type: string;
-  difficulty: string;
-  category: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: Array<string>;
-}
+import { useQuizStore } from "../stores/store";
 
-defineProps<Question>();
+const quizStore = useQuizStore();
 </script>
-
 <template>
-  <div class="flex flex-col">
-    <div>{{ type }}</div>
-    <div>{{ difficulty }}</div>
-    <div>{{ category }}</div>
-    <div>{{ question }}</div>
-    <div>{{ correct_answer }}</div>
-    <div>{{ incorrect_answers }}</div>
+  <div v-if="quizStore?.quizData?.results?.length">
+    <ul>
+      <li
+        v-for="answer in [
+          ...quizStore.quizData.results[quizStore.currentQuestion]
+            .incorrect_answers,
+          quizStore.quizData.results[quizStore.currentQuestion].correct_answer,
+        ].sort()"
+        :key="answer"
+        @click="quizStore.saveAnswer(answer)"
+      >
+        {{ answer }}
+      </li>
+    </ul>
   </div>
+  <div v-else>Loading...</div>
+  <div>{{ quizStore.userAnswers }}</div>
 </template>
 
 <style scoped></style>
