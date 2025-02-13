@@ -14,9 +14,7 @@ onMounted(async () => {
   <div class="flex flex-col items-center">
     <p>Quiz</p>
     <template v-if="quizStore.quizData">
-      <QuizElement
-        v-bind="quizStore.quizData.results[quizStore.currentQuestion]"
-      />
+      <QuizElement />
     </template>
     <p v-else>Ładowanie...</p>
     <div class="flex gap-5">
