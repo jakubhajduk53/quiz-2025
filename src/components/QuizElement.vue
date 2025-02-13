@@ -5,6 +5,9 @@ const quizStore = useQuizStore();
 </script>
 <template>
   <div v-if="quizStore?.quizData?.results?.length">
+    <div>
+      {{ quizStore.quizData.results[quizStore.currentQuestion].question }}
+    </div>
     <ul>
       <li
         v-for="answer in [
@@ -14,6 +17,12 @@ const quizStore = useQuizStore();
         ].sort()"
         :key="answer"
         @click="quizStore.saveAnswer(answer)"
+        :class="{
+          'bg-blue-500 text-white font-bold cursor-pointer':
+            answer === quizStore.userAnswers[quizStore.currentQuestion],
+          'bg-gray-200 hover:bg-gray-300  cursor-pointer':
+            answer !== quizStore.userAnswers[quizStore.currentQuestion],
+        }"
       >
         {{ answer }}
       </li>
