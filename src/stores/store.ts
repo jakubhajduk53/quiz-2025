@@ -27,6 +27,11 @@ export const useQuizStore = defineStore("quiz", {
         this.currentQuestion--;
       }
     },
+    resetQuiz() {
+      this.quizData = null;
+      this.currentQuestion = 0;
+      this.userAnswers = [""];
+    },
     saveAnswer(answer: string) {
       this.userAnswers[this.currentQuestion] = answer;
     },
