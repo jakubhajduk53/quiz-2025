@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import { useQuizStore } from "../stores/store";
+import { ElButton } from "element-plus";
 
 const quizStore = useQuizStore();
 </script>
@@ -10,11 +11,9 @@ const quizStore = useQuizStore();
     <div>
       <p>Your Score: {{ quizStore.calculateScore() }}</p>
     </div>
-    <RouterLink to="/">
-      <button class="cursor-pointer p-5 bg-red-50" @click="quizStore.resetQuiz">
-        Home
-      </button>
-    </RouterLink>
+    <el-button plain @click="quizStore.resetQuiz"
+      ><RouterLink to="/">Home</RouterLink>
+    </el-button>
   </div>
 </template>
 
