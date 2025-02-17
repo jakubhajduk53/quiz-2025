@@ -1,35 +1,38 @@
 <script setup lang="ts">
 import { useQuizStore } from "../stores/store";
+import { ref } from "vue";
+import { ElRadio, ElRadioGroup } from "element-plus";
 
 const quizStore = useQuizStore();
+const selectedAnswer = ref<string>("");
+
+const saveQuizAnswer = (answer: string | number | boolean | undefined) => {
+  if (typeof answer === "string") {
+    selectedAnswer.value = answer;
+    quizStore.saveAnswer(answer);
+  }
+};
 </script>
 <template>
   <div v-if="quizStore?.quizData?.results?.length">
     <div>
       {{ quizStore.quizData.results[quizStore.currentQuestion].question }}
     </div>
-    <ul>
-      <li
+    <el-radio-group v-model="selectedAnswer" @change="saveQuizAnswer">
+      <el-radio
         v-for="answer in [
           ...quizStore.quizData.results[quizStore.currentQuestion]
             .incorrect_answers,
           quizStore.quizData.results[quizStore.currentQuestion].correct_answer,
         ].sort()"
         :key="answer"
-        @click="quizStore.saveAnswer(answer)"
-        :class="{
-          'bg-blue-500 text-white font-bold cursor-pointer':
-            answer === quizStore.userAnswers[quizStore.currentQuestion],
-          'bg-gray-200 hover:bg-gray-300  cursor-pointer':
-            answer !== quizStore.userAnswers[quizStore.currentQuestion],
-        }"
+        :label="answer"
       >
         {{ answer }}
-      </li>
-    </ul>
+      </el-radio>
+    </el-radio-group>
   </div>
   <div v-else>Loading...</div>
-  <div>{{ quizStore.userAnswers }}</div>
 </template>
 
 <style scoped></style>
