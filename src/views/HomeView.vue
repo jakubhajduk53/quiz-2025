@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { ElButton } from "element-plus";
 import { RouterLink } from "vue-router";
+import { useQuizStore } from "../stores/store";
+import { onMounted } from "vue";
+
+const quizStore = useQuizStore();
+
+onMounted(() => {
+  quizStore.resetQuiz();
+});
 </script>
 
 <template>
