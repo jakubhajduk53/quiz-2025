@@ -3,6 +3,12 @@ import { useFetchQuiz } from "../composables/useFetchQuiz";
 import type { QuizResponse } from "../composables/useFetchQuiz";
 import { ref } from "vue";
 
+export type AnswerDetail = {
+  user_answer: string;
+  correct_answer: string;
+  is_correct: boolean;
+};
+
 export const useQuizStore = defineStore("quiz", {
   state: () => ({
     quizData: ref<QuizResponse | null>(null),
@@ -36,12 +42,28 @@ export const useQuizStore = defineStore("quiz", {
       this.userAnswers[this.currentQuestion] = answer;
     },
     calculateScore() {
-      if (!this.quizData) return 0;
-      return this.quizData.results.reduce((score, question, index) => {
-        return question.correct_answer === this.userAnswers[index]
-          ? score + 1
-          : score;
-      }, 0);
+      if (!this.quizData) return { score: 0, details: [] };
+
+      const result = this.quizData.results.reduce(
+        (acc, question, index) => {
+          const isCorrect = question.correct_answer === this.userAnswers[index];
+
+          acc.details.push({
+            user_answer: this.userAnswers[index],
+            correct_answer: question.correct_answer,
+            is_correct: isCorrect,
+          });
+
+          if (isCorrect) {
+            acc.score++;
+          }
+
+          return acc;
+        },
+        { score: 0, details: [] as AnswerDetail[] }
+      );
+
+      return result;
     },
   },
 });
