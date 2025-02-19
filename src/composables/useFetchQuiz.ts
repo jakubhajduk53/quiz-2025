@@ -1,17 +1,6 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
-
-export type QuizResponse = {
-  response_code: number;
-  results: Array<{
-    category: string;
-    type: string;
-    difficulty: string;
-    question: string;
-    correct_answer: string;
-    incorrect_answers: string[];
-  }>;
-};
+import type { QuizResponse } from "../interfaces/interfaces";
 
 export const useFetchQuiz = () => {
   const result: Ref<QuizResponse | null> = ref(null);

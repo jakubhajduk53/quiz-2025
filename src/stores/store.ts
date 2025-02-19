@@ -1,13 +1,7 @@
 import { defineStore } from "pinia";
 import { useFetchQuiz } from "../composables/useFetchQuiz";
-import type { QuizResponse } from "../composables/useFetchQuiz";
+import type { QuizResponse, AnswerDetail } from "../interfaces/interfaces";
 import { ref } from "vue";
-
-export type AnswerDetail = {
-  user_answer: string;
-  correct_answer: string;
-  is_correct: boolean;
-};
 
 export const useQuizStore = defineStore("quiz", {
   state: () => ({
