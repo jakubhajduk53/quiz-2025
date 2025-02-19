@@ -18,9 +18,9 @@ onMounted(() => {
       <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
       <DetailsElement></DetailsElement>
     </div>
-    <el-button plain @click="quizStore.resetQuiz"
-      ><RouterLink to="/">Home</RouterLink>
-    </el-button>
+    <RouterLink to="/">
+      <el-button plain @click="quizStore.resetQuiz">Home</el-button>
+    </RouterLink>
   </div>
 </template>
 

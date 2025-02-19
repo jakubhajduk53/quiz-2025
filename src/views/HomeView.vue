@@ -21,9 +21,9 @@ onMounted(() => {
         From free to use, user-contributed trivia question database
       </div>
     </div>
-    <el-button plain size="large">
-      <RouterLink to="quiz">Start</RouterLink>
-    </el-button>
+    <RouterLink to="quiz"
+      ><el-button plain size="large">Start</el-button>
+    </RouterLink>
   </div>
 </template>
 

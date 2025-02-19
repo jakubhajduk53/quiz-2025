@@ -32,9 +32,9 @@ onMounted(async () => {
       >
         NEXT
       </el-button>
-      <el-button plain v-else>
-        <RouterLink to="results">END</RouterLink>
-      </el-button>
+      <RouterLink to="results" v-else class="ml-3">
+        <el-button plain>END</el-button>
+      </RouterLink>
     </div>
   </div>
 </template>
