@@ -6,12 +6,13 @@ import { ElTable, ElTableColumn } from "element-plus";
 
 const quizStore = useQuizStore();
 const details = ref<AnswerDetail[]>([]);
-onMounted(() => {
-  details.value = quizStore.calculateScore().details;
-});
 const rowClassName = ({ row }: { row: AnswerDetail }) => {
   return row.is_correct ? "success-row" : "warning-row ";
 };
+
+onMounted(() => {
+  details.value = quizStore.calculateScore().details;
+});
 </script>
 <template>
   <el-table :data="details" :row-class-name="rowClassName">
@@ -21,11 +22,11 @@ const rowClassName = ({ row }: { row: AnswerDetail }) => {
   </el-table>
 </template>
 
-<style>
-.el-table .warning-row {
+<style scoped>
+.el-table ::v-deep(.warning-row) {
   --el-table-tr-bg-color: var(--el-color-danger-light-5);
 }
-.el-table .success-row {
+.el-table ::v-deep(.success-row) {
   --el-table-tr-bg-color: var(--el-color-success-light-5);
 }
 </style>
