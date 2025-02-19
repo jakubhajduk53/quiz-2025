@@ -1,17 +1,11 @@
 import { defineStore } from "pinia";
 import { useFetchQuiz } from "../composables/useFetchQuiz";
-import type { QuizResponse } from "../composables/useFetchQuiz";
+import type { QuizResponse, AnswerDetail } from "../interfaces/interfaces";
 import { ref } from "vue";
-
-export type AnswerDetail = {
-  user_answer: string;
-  correct_answer: string;
-  is_correct: boolean;
-};
 
 export const useQuizStore = defineStore("quiz", {
   state: () => ({
-    quizData: ref<QuizResponse | null>(null),
+    quizData: ref<QuizResponse>(),
     currentQuestion: 0,
     userAnswers: ref<string[]>([]),
   }),
@@ -34,9 +28,9 @@ export const useQuizStore = defineStore("quiz", {
       }
     },
     resetQuiz() {
-      this.quizData = null;
+      this.quizData = undefined;
       this.currentQuestion = 0;
-      this.userAnswers = [""];
+      this.userAnswers = [];
     },
     saveAnswer(answer: string) {
       this.userAnswers[this.currentQuestion] = answer;

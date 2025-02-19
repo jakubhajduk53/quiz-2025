@@ -6,11 +6,9 @@ import { ElRadio, ElRadioGroup } from "element-plus";
 const quizStore = useQuizStore();
 const selectedAnswer = ref<string>("");
 
-const saveQuizAnswer = (answer: string | number | boolean | undefined) => {
-  if (typeof answer === "string") {
-    selectedAnswer.value = answer;
-    quizStore.saveAnswer(answer);
-  }
+const saveQuizAnswer = (answer: string) => {
+  selectedAnswer.value = answer;
+  quizStore.saveAnswer(answer);
 };
 </script>
 <template>
@@ -18,7 +16,10 @@ const saveQuizAnswer = (answer: string | number | boolean | undefined) => {
     <div>
       {{ quizStore.quizData.results[quizStore.currentQuestion].question }}
     </div>
-    <el-radio-group v-model="selectedAnswer" @change="saveQuizAnswer">
+    <el-radio-group
+      v-model="selectedAnswer"
+      @change="(answer)=>{saveQuizAnswer(answer as string)}"
+    >
       <el-radio
         v-for="answer in [
           ...quizStore.quizData.results[quizStore.currentQuestion]
