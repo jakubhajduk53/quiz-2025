@@ -15,7 +15,7 @@ onMounted(() => {
 <template>
   <div class="flex flex-col gap-5 items-center justify-center text-center">
     <div>
-      <p>Your Score: {{ score }}/{{ quizStore?.quizData?.results.length }}</p>
+      <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
       <DetailsElement></DetailsElement>
     </div>
     <el-button plain @click="quizStore.resetQuiz"

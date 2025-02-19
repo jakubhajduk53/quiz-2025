@@ -7,9 +7,22 @@ export const useQuizStore = defineStore("quiz", {
   state: () => ({
     quizData: ref<QuizResponse>(),
     currentQuestion: 0,
-    userAnswers: ref<string[]>([]),
+    userAnswers: ref<string[]>(),
   }),
-
+  getters: {
+    getQuizLength: (state) => state.quizData?.results.length,
+    getCurrentQuestionId: (state) => state.currentQuestion,
+    getCurrentQuestionText: (state) =>
+      state.quizData?.results[state.currentQuestion].question,
+    getQuizDataResults: (state) => state.quizData?.results,
+    getQuestions: (state) => {
+      const results = state.quizData?.results[state.currentQuestion];
+      return [
+        ...(results?.incorrect_answers || []),
+        results?.correct_answer,
+      ].sort();
+    },
+  },
   actions: {
     async fetch() {
       const { result, fetchQuiz } = useFetchQuiz();

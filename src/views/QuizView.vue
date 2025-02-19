@@ -28,9 +28,7 @@ onMounted(async () => {
       <el-button
         plain
         @click="quizStore.nextQuestion"
-        v-if="
-          quizStore.currentQuestion !== quizStore?.quizData?.results?.length - 1
-        "
+        v-if="quizStore.getCurrentQuestionId !== quizStore?.getQuizLength - 1"
       >
         NEXT
       </el-button>
