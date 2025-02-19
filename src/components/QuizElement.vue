@@ -13,16 +13,14 @@ const selectedAnswer = computed({
 </script>
 <template>
   <div v-if="quizStore.getQuizLength">
-    <div>
-      {{ quizStore.getCurrentQuestionText }}
-    </div>
+    <div v-html="quizStore.getCurrentQuestionText"></div>
     <el-radio-group v-model="selectedAnswer">
       <el-radio
         v-for="answer in quizStore.getQuestions"
         :key="answer"
         :value="answer"
+        v-html="answer"
       >
-        {{ answer }}
       </el-radio>
     </el-radio-group>
   </div>
