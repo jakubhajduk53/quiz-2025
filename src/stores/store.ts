@@ -11,7 +11,7 @@ export type AnswerDetail = {
 
 export const useQuizStore = defineStore("quiz", {
   state: () => ({
-    quizData: ref<QuizResponse | null>(null),
+    quizData: ref<QuizResponse>(),
     currentQuestion: 0,
     userAnswers: ref<string[]>([]),
   }),
@@ -34,9 +34,9 @@ export const useQuizStore = defineStore("quiz", {
       }
     },
     resetQuiz() {
-      this.quizData = null;
+      this.quizData = undefined;
       this.currentQuestion = 0;
-      this.userAnswers = [""];
+      this.userAnswers = [];
     },
     saveAnswer(answer: string) {
       this.userAnswers[this.currentQuestion] = answer;

@@ -1,8 +1,8 @@
 import { ref } from "vue";
-import type { Ref } from "vue";
 
 export type QuizResponse = {
   response_code: number;
+  //przeniesc array do osobnego typu, zmienic type na interface jak duzy obiekt
   results: Array<{
     category: string;
     type: string;
@@ -14,13 +14,13 @@ export type QuizResponse = {
 };
 
 export const useFetchQuiz = () => {
-  const result: Ref<QuizResponse | null> = ref(null);
+  const result = ref<QuizResponse>();
   const loading = ref(false);
-  const error = ref<string | null>(null);
+  const error = ref<string>();
 
   const fetchQuiz = async () => {
     loading.value = true;
-    error.value = null;
+    error.value = undefined;
     try {
       const response = await fetch("https://opentdb.com/api.php?amount=10");
       if (!response.ok) {

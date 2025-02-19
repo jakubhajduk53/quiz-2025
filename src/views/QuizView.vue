@@ -10,6 +10,7 @@ const quizStore = useQuizStore();
 onMounted(async () => {
   await quizStore.fetch();
 });
+//przeniesc te dlugie funkcje z template do store jako getters z innych plikow tez
 </script>
 
 <template>
@@ -20,7 +21,7 @@ onMounted(async () => {
     <template v-if="quizStore.quizData">
       <QuizElement />
     </template>
-    <p v-else>Ładowanie...</p>
+    <p v-else>Loading...</p>
     <div class="flex">
       <el-button plain @click="quizStore.previousQuestion">
         PREVIOUS
