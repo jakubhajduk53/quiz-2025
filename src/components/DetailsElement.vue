@@ -15,10 +15,20 @@ onMounted(() => {
 });
 </script>
 <template>
-  <el-table :data="details" :row-class-name="rowClassName">
-    <el-table-column label="Index" type="index" width="100" />
-    <el-table-column label="User Answer" prop="user_answer" width="200" />
-    <el-table-column label="Correct Answer" prop="correct_answer" width="200" />
+  <el-table :data="details" border :row-class-name="rowClassName">
+    <el-table-column label="Index" type="index" width="100" align="center" />
+    <el-table-column
+      label="User Answer"
+      prop="user_answer"
+      width="200"
+      align="center"
+    />
+    <el-table-column
+      label="Correct Answer"
+      prop="correct_answer"
+      width="200"
+      align="center"
+    />
   </el-table>
 </template>
 

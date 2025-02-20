@@ -13,7 +13,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-5 items-center justify-center text-center">
+  <div
+    class="flex flex-col gap-5 items-center justify-center text-center mt-10"
+  >
     <div>
       <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
       <DetailsElement></DetailsElement>
