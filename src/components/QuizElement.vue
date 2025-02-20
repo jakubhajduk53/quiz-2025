@@ -19,8 +19,7 @@ const selectedAnswer = computed({
         v-for="answer in quizStore.getQuestions"
         :key="answer"
         :value="answer"
-        v-html="answer"
-      >
+        ><div>{{ answer }}</div>
       </el-radio>
     </el-radio-group>
   </div>
