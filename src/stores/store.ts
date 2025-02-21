@@ -35,6 +35,9 @@ export const useQuizStore = defineStore("quiz", {
         this.currentQuestion++;
       }
     },
+    changeQuestion(index: number) {
+      this.currentQuestion = index;
+    },
     previousQuestion() {
       if (this.currentQuestion > 0) {
         this.currentQuestion--;
