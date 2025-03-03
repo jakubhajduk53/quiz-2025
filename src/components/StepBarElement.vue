@@ -7,7 +7,7 @@ const quizStore = useQuizStore();
   <el-steps
     :active="quizStore.getCurrentQuestionId"
     finish-status="wait"
-    align-center=""
+    align-center
     class="flex gap-3 mb-2"
   >
     <el-step
