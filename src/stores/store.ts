@@ -7,10 +7,14 @@ export const useQuizStore = defineStore("quiz", {
   state: () => ({
     quizData: ref<QuizResponse>(),
     currentQuestion: 0,
-    userAnswers: ref<string[]>(),
+    userAnswers: ref<string[]>([]),
   }),
   getters: {
     getQuizLength: (state) => state.quizData?.results.length,
+    getLastQuestionId: (state) =>
+      state.quizData?.results.length
+        ? state.quizData.results.length - 1
+        : undefined,
     getCurrentQuestionId: (state) => state.currentQuestion,
     getCurrentQuestionText: (state) =>
       state.quizData?.results[state.currentQuestion].question,
