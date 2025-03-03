@@ -8,7 +8,7 @@ const quizStore = useQuizStore();
   <div v-if="quizStore.getQuizLength">
     <div v-html="quizStore.getCurrentQuestionText"></div>
     <el-radio-group
-      v-model="quizStore.userAnswers[quizStore.currentQuestion]"
+      :model-value="quizStore.userAnswers[quizStore.currentQuestion]"
       @update:model-value="quizStore.saveAnswer($event as string)"
       class="flex justify-center"
     >
