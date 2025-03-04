@@ -15,21 +15,23 @@ onMounted(() => {
 });
 </script>
 <template>
-  <el-table :data="details" border :row-class-name="rowClassName">
-    <el-table-column label="Index" type="index" width="100" align="center" />
-    <el-table-column
-      label="User Answer"
-      prop="user_answer"
-      width="200"
-      align="center"
-    />
-    <el-table-column
-      label="Correct Answer"
-      prop="correct_answer"
-      width="200"
-      align="center"
-    />
-  </el-table>
+  <div class="w-[100vw] max-w-[500px]">
+    <el-table :data="details" border :row-class-name="rowClassName">
+      <el-table-column label="Index" type="index" width="100" align="center" />
+      <el-table-column
+        label="User Answer"
+        prop="user_answer"
+        width="200"
+        align="center"
+      />
+      <el-table-column
+        label="Correct Answer"
+        prop="correct_answer"
+        width="200"
+        align="center"
+      />
+    </el-table>
+  </div>
 </template>
 
 <style scoped>
