@@ -15,7 +15,7 @@ onMounted(async () => {
 
 <template>
   <div
-    class="flex flex-col h-full justify-center items-center text-center transform -translate-y-50"
+    class="flex flex-col h-full justify-center items-center text-center transform -translate-y-50 gap-7"
   >
     <template v-if="quizStore.quizData">
       <StepBarElement />

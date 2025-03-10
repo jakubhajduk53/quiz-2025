@@ -5,8 +5,8 @@ import { ElRadio, ElRadioGroup } from "element-plus";
 const quizStore = useQuizStore();
 </script>
 <template>
-  <div v-if="quizStore.getQuizLength">
-    <div v-html="quizStore.getCurrentQuestionText"></div>
+  <div v-if="quizStore.getQuizLength" class="flex flex-col gap-2">
+    <div v-html="quizStore.getCurrentQuestionText" class="text-lg"></div>
     <el-radio-group
       :model-value="quizStore.userAnswers[quizStore.currentQuestion]"
       @update:model-value="quizStore.saveAnswer($event as string)"
