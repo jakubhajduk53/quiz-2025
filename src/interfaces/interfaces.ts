@@ -17,3 +17,11 @@ export interface AnswerDetail {
   correct_answer: string;
   is_correct: boolean;
 }
+
+export interface State {
+  quizData: QuizResponse | undefined;
+  currentQuestion: number;
+  userAnswers: string[];
+  errorStatus: string | undefined;
+  loadingStatus: boolean;
+}
