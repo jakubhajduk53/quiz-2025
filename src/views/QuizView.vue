@@ -16,6 +16,7 @@ onMounted(async () => {
 <template>
   <div
     class="flex flex-col h-full justify-center items-center text-center transform -translate-y-50 gap-7"
+    v-loading="quizStore.loadingStatus"
   >
     <template v-if="quizStore.quizData">
       <StepBarElement />
@@ -36,7 +37,9 @@ onMounted(async () => {
         </RouterLink>
       </div>
     </template>
-    <p v-else>Loading...</p>
+    <p v-else-if="quizStore.errorStatus">
+      {{ quizStore.errorStatus + ". Please refresh." }}
+    </p>
   </div>
 </template>
 
