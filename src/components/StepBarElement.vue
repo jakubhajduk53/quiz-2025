@@ -1,12 +1,22 @@
 <script setup lang="ts">
 import { useQuizStore } from "../stores/store";
 import { ElSteps, ElStep } from "element-plus";
+
 const quizStore = useQuizStore();
+
+const stepColor = (id: number) => {
+  if (quizStore.currentQuestion == id) {
+    return "process";
+  } else if (quizStore.userAnswers[id]) {
+    return "finish";
+  } else {
+    return "wait";
+  }
+};
 </script>
 <template>
   <el-steps
     :active="quizStore.getCurrentQuestionId"
-    finish-status="wait"
     align-center
     class="flex gap-3 mb-2"
   >
@@ -15,6 +25,7 @@ const quizStore = useQuizStore();
       :key="i"
       @click="quizStore.changeQuestion(i - 1)"
       class="cursor-pointer"
+      :status="stepColor(i - 1)"
     />
   </el-steps>
 </template>
