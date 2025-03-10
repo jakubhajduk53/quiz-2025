@@ -8,6 +8,8 @@ export const useQuizStore = defineStore("quiz", {
     quizData: ref<QuizResponse>(),
     currentQuestion: 0,
     userAnswers: ref<string[]>([]),
+    errorStatus: ref<string>(),
+    loadingStatus: ref<boolean>(),
   }),
   getters: {
     getQuizLength: (state) => state.quizData?.results.length,
@@ -29,10 +31,13 @@ export const useQuizStore = defineStore("quiz", {
   },
   actions: {
     async fetch() {
-      const { result, fetchQuiz } = useFetchQuiz();
+      const { result, error, fetchQuiz } = useFetchQuiz();
+      this.loadingStatus = true;
       await fetchQuiz();
+      this.loadingStatus = false;
       this.quizData = result.value;
       this.userAnswers = [];
+      this.errorStatus = error.value;
     },
     nextQuestion() {
       if (this.currentQuestion < 9) {
