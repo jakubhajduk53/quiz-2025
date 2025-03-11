@@ -25,20 +25,16 @@ onMounted(async () => {
         <el-button
           plain
           @click="quizStore.previousQuestion"
-          :disabled="quizStore.getCurrentQuestionId == 0"
+          :disabled="quizStore.isFirstQuestion"
         >
           PREVIOUS
         </el-button>
-        <el-button
-          plain
-          @click="quizStore.nextQuestion"
-          v-if="quizStore.getCurrentQuestionId !== quizStore?.getLastQuestionId"
-        >
-          NEXT
-        </el-button>
-        <RouterLink to="results" v-else class="ml-3">
+        <RouterLink to="results" v-if="quizStore.isLastQuestion" class="ml-3">
           <el-button plain>END</el-button>
         </RouterLink>
+        <el-button plain @click="quizStore.nextQuestion" v-else>
+          NEXT
+        </el-button>
       </div>
     </template>
     <p v-else-if="quizStore.errorStatus">

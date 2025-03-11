@@ -27,6 +27,14 @@ export const useQuizStore = defineStore("quiz", {
         results?.correct_answer,
       ].sort();
     },
+    isFirstQuestion: (state) => {
+      return state.currentQuestion == 0;
+    },
+    isLastQuestion: (state) => {
+      return state.quizData?.results
+        ? state.currentQuestion == state.quizData.results.length - 1
+        : false;
+    },
   },
   actions: {
     async fetch() {
