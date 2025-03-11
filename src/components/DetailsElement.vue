@@ -23,13 +23,21 @@ onMounted(() => {
         prop="user_answer"
         width="200"
         align="center"
-      />
+      >
+        <template #default="scope">
+          <span v-html="scope.row.user_answer" />
+        </template>
+      </el-table-column>
       <el-table-column
         label="Correct Answer"
         prop="correct_answer"
         width="200"
         align="center"
-      />
+      >
+        <template #default="scope">
+          <span v-html="scope.row.correct_answer" />
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>

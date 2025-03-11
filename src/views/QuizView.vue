@@ -22,7 +22,11 @@ onMounted(async () => {
       <StepBarElement />
       <QuizElement />
       <div class="flex">
-        <el-button plain @click="quizStore.previousQuestion">
+        <el-button
+          plain
+          @click="quizStore.previousQuestion"
+          :disabled="quizStore.getCurrentQuestionId == 0"
+        >
           PREVIOUS
         </el-button>
         <el-button
@@ -38,7 +42,7 @@ onMounted(async () => {
       </div>
     </template>
     <p v-else-if="quizStore.errorStatus">
-      {{ quizStore.errorStatus + ". Please refresh." }}
+      {{ quizStore.errorStatus + ". Please try again later." }}
     </p>
   </div>
 </template>

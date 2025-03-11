@@ -27,7 +27,7 @@ const percentage = computed(() => {
         :percentage="percentage"
         status="success"
       />
-      <DetailsElement></DetailsElement>
+      <DetailsElement />
     </div>
     <RouterLink to="/">
       <el-button plain @click="quizStore.resetQuiz">Home</el-button>
