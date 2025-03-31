@@ -6,7 +6,10 @@ const quizStore = useQuizStore();
 </script>
 <template>
   <div class="flex flex-col gap-2">
-    <div v-html="quizStore.getCurrentQuestionText" class="text-lg"></div>
+    <div
+      v-html="quizStore.getCurrentQuestionText"
+      class="text-base md:text-xl font-semibold"
+    ></div>
     <el-radio-group
       :model-value="quizStore.userAnswers[quizStore.currentQuestion]"
       @update:model-value="quizStore.saveAnswer($event as string)"
@@ -16,7 +19,7 @@ const quizStore = useQuizStore();
         v-for="answer in quizStore.getQuestions"
         :key="answer"
         :value="answer"
-        ><div v-html="answer"></div>
+        ><div v-html="answer" class="text-sm md:text-base"></div>
       </el-radio>
     </el-radio-group>
   </div>
