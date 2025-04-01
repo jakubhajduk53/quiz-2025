@@ -44,7 +44,7 @@ onMounted(() => {
 
 <style scoped>
 .el-table ::v-deep(.warning-row) {
-  --el-table-tr-bg-color: var(--el-color-danger-light-5);
+  --el-table-tr-bg-color: var(--el-color-danger-light-7);
 }
 .el-table ::v-deep(.success-row) {
   --el-table-tr-bg-color: var(--el-color-success-light-5);
