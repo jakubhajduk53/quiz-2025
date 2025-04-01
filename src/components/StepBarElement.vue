@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import { useQuizStore } from "../stores/store";
-import { ElSteps, ElStep } from "element-plus";
+// import { useQuizStore } from "../stores/store";
 
-const quizStore = useQuizStore();
+// const quizStore = useQuizStore();
 
-const stepColor = (id: number) => {
-  if (quizStore.currentQuestion == id) {
-    return "process";
-  } else if (quizStore.userAnswers[id]) {
-    return "finish";
-  } else {
-    return "wait";
-  }
-};
+// const stepColor = (id: number) => {
+//   if (quizStore.currentQuestion == id) {
+//     return "process";
+//   } else if (quizStore.userAnswers[id]) {
+//     return "finish";
+//   } else {
+//     return "wait";
+//   }
+// };
 </script>
 <template>
-  <el-steps
+  <!-- <el-steps
     :active="quizStore.getCurrentQuestionId"
     align-center
     class="flex gap-1 md:gap-3"
@@ -27,6 +26,6 @@ const stepColor = (id: number) => {
       class="cursor-pointer"
       :status="stepColor(i - 1)"
     />
-  </el-steps>
+  </el-steps> -->
 </template>
 <style scoped></style>

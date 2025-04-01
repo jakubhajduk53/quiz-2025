@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 import { useQuizStore } from "../stores/store";
-import { ElButton, ElProgress } from "element-plus";
 import { ref, onMounted, computed } from "vue";
 import DetailsElement from "../components/DetailsElement.vue";
 
@@ -21,16 +20,17 @@ const percentage = computed(() => {
   >
     <div class="flex flex-col gap-1">
       <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
-      <el-progress
-        :text-inside="true"
-        :stroke-width="24"
-        :percentage="percentage"
-        status="success"
-      />
+      <p>{{ percentage }}%</p>
       <DetailsElement />
     </div>
     <RouterLink to="/">
-      <el-button type="primary" @click="quizStore.resetQuiz">Home</el-button>
+      <UButton
+        variant="solid"
+        color="secondary"
+        class="h-[28px] md:h-[40px] px-3 md:px-5 md:text-base cursor-pointer"
+        @click="quizStore.resetQuiz"
+        >Home</UButton
+      >
     </RouterLink>
   </div>
 </template>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import QuizElement from "../components/QuizElement.vue";
 import StepBarElement from "../components/StepBarElement.vue";
-import { ElButton } from "element-plus";
 import { RouterLink } from "vue-router";
 import { useQuizStore } from "../stores/store";
 import { onMounted } from "vue";
@@ -21,21 +20,32 @@ onMounted(async () => {
     <template v-if="quizStore.quizData">
       <StepBarElement />
       <QuizElement />
-      <div class="flex">
-        <el-button
-          plain
-          type="primary"
+      <div class="flex justify-center gap-3">
+        <UButton
+          variant="subtle"
+          color="secondary"
+          class="h-[28px] md:h-[40px] px-3 md:px-5 md:text-base cursor-pointer"
           @click="quizStore.previousQuestion"
           :disabled="quizStore.isFirstQuestion"
+          >PREVIOUS</UButton
         >
-          PREVIOUS
-        </el-button>
-        <RouterLink to="results" v-if="quizStore.isLastQuestion" class="ml-3">
-          <el-button type="primary">END</el-button>
+        <RouterLink to="results" v-if="quizStore.isLastQuestion">
+          <UButton
+            variant="solid"
+            color="secondary"
+            class="h-[28px] md:h-[40px] px-3 md:px-5 md:text-base cursor-pointer"
+            >END</UButton
+          >
         </RouterLink>
-        <el-button type="primary" @click="quizStore.nextQuestion" v-else>
+        <UButton
+          variant="solid"
+          color="secondary"
+          class="h-[28px] md:h-[40px] px-3 md:px-5 md:text-base cursor-pointer"
+          @click="quizStore.nextQuestion"
+          v-else
+        >
           NEXT
-        </el-button>
+        </UButton>
       </div>
     </template>
     <p v-else-if="quizStore.errorStatus">
