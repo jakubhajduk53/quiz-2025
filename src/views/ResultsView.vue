@@ -17,7 +17,7 @@ const percentage = computed(() => {
 
 <template>
   <div
-    class="flex flex-col h-full gap-5 justify-center items-center text-center transform sm:-translate-y-30"
+    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[600px] m-5 px-5 py-10 rounded-sm transform -translate-y-25 bg-white/90 shadow-sm"
   >
     <div class="flex flex-col gap-1">
       <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
@@ -30,7 +30,7 @@ const percentage = computed(() => {
       <DetailsElement />
     </div>
     <RouterLink to="/">
-      <el-button plain @click="quizStore.resetQuiz">Home</el-button>
+      <el-button type="primary" @click="quizStore.resetQuiz">Home</el-button>
     </RouterLink>
   </div>
 </template>
