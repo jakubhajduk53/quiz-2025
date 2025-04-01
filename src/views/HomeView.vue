@@ -2,26 +2,16 @@
 import { ElButton } from "element-plus";
 import { RouterLink } from "vue-router";
 import { useQuizStore } from "../stores/store";
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { onMounted } from "vue";
+import { useScreenSize } from "../composables/useScreenSize";
+
+const { primaryButton } = useScreenSize();
 
 const quizStore = useQuizStore();
 
-const screenWidth = ref(window.innerWidth);
-
-const updateSize = () => {
-  screenWidth.value = window.innerWidth;
-};
-
 onMounted(() => {
-  window.addEventListener("resize", updateSize);
   quizStore.resetQuiz();
 });
-
-onUnmounted(() => {
-  window.removeEventListener("resize", updateSize);
-});
-
-const isMobile = computed(() => (screenWidth.value < 768 ? "small" : "large"));
 </script>
 
 <template>
@@ -35,7 +25,7 @@ const isMobile = computed(() => (screenWidth.value < 768 ? "small" : "large"));
       </div>
     </div>
     <RouterLink to="quiz"
-      ><el-button type="primary" :size="isMobile" class="shadow-sm"
+      ><el-button type="primary" :size="primaryButton" class="shadow-sm"
         >Start</el-button
       >
     </RouterLink>

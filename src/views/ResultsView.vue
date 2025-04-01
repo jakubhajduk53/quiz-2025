@@ -4,12 +4,17 @@ import { useQuizStore } from "../stores/store";
 import { ElButton, ElProgress } from "element-plus";
 import { ref, onMounted, computed } from "vue";
 import DetailsElement from "../components/DetailsElement.vue";
+import { useScreenSize } from "../composables/useScreenSize";
+
+const { secondaryButton } = useScreenSize();
 
 const quizStore = useQuizStore();
 const score = ref<number>(0);
+
 onMounted(() => {
   score.value = quizStore.calculateScore().score;
 });
+
 const percentage = computed(() => {
   return score.value * 10;
 });
@@ -30,7 +35,12 @@ const percentage = computed(() => {
       <DetailsElement />
     </div>
     <RouterLink to="/">
-      <el-button type="primary" @click="quizStore.resetQuiz">Home</el-button>
+      <el-button
+        type="primary"
+        :size="secondaryButton"
+        @click="quizStore.resetQuiz"
+        >Home</el-button
+      >
     </RouterLink>
   </div>
 </template>

@@ -5,6 +5,9 @@ import { ElButton } from "element-plus";
 import { RouterLink } from "vue-router";
 import { useQuizStore } from "../stores/store";
 import { onMounted } from "vue";
+import { useScreenSize } from "../composables/useScreenSize";
+
+const { secondaryButton } = useScreenSize();
 
 const quizStore = useQuizStore();
 
@@ -25,15 +28,21 @@ onMounted(async () => {
         <el-button
           plain
           type="primary"
+          :size="secondaryButton"
           @click="quizStore.previousQuestion"
           :disabled="quizStore.isFirstQuestion"
         >
           PREVIOUS
         </el-button>
         <RouterLink to="results" v-if="quizStore.isLastQuestion" class="ml-3">
-          <el-button type="primary">END</el-button>
+          <el-button type="primary" :size="secondaryButton">END</el-button>
         </RouterLink>
-        <el-button type="primary" @click="quizStore.nextQuestion" v-else>
+        <el-button
+          type="primary"
+          :size="secondaryButton"
+          @click="quizStore.nextQuestion"
+          v-else
+        >
           NEXT
         </el-button>
       </div>
