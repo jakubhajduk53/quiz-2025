@@ -19,7 +19,7 @@ export const useScreenSize = () => {
     screenWidth.value < 768 ? "small" : "large"
   );
   const secondaryButton = computed(() =>
-    screenWidth.value < 768 ? "small" : "medium"
+    screenWidth.value < 768 ? "small" : "default"
   );
 
   return {
