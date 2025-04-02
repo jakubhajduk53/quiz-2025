@@ -26,7 +26,7 @@ onMounted(() => {
     </div>
     <RouterLink to="quiz"
       ><el-button type="primary" :size="primaryButton" class="shadow-sm"
-        >Start</el-button
+        >START</el-button
       >
     </RouterLink>
   </div>

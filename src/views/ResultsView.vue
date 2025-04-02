@@ -25,13 +25,16 @@ const percentage = computed(() => {
     class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[600px] m-5 px-5 py-10 rounded-sm transform -translate-y-25 bg-white/90 shadow-sm"
   >
     <div class="flex flex-col gap-1">
-      <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
-      <el-progress
-        :text-inside="true"
-        :stroke-width="24"
-        :percentage="percentage"
-        status="success"
-      />
+      <div v-if="quizStore.getQuizLength">
+        <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
+        <el-progress
+          :text-inside="true"
+          :stroke-width="24"
+          :percentage="percentage"
+          status="success"
+        />
+      </div>
+      <div v-else>You need to fill the quiz before checking results</div>
       <DetailsElement />
     </div>
     <RouterLink to="/">
@@ -39,7 +42,7 @@ const percentage = computed(() => {
         type="primary"
         :size="secondaryButton"
         @click="quizStore.resetQuiz"
-        >Home</el-button
+        >HOME</el-button
       >
     </RouterLink>
   </div>
