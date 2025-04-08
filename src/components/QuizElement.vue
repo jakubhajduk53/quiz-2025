@@ -25,4 +25,15 @@ const quizStore = useQuizStore();
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.el-radio.is-checked ::v-deep(.el-radio__inner) {
+  background: hsl(338, 85%, 46%);
+  border-color: hsl(338, 85%, 46%);
+}
+.el-radio.is-checked ::v-deep(.el-radio__label) {
+  color: hsl(338, 85%, 46%);
+}
+.el-radio ::v-deep() {
+  --el-radio-input-border-color-hover: hsl(338, 85%, 46%);
+}
+</style>

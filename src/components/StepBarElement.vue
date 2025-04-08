@@ -3,7 +3,6 @@ import { useQuizStore } from "../stores/store";
 import { ElSteps, ElStep } from "element-plus";
 
 const quizStore = useQuizStore();
-
 const stepColor = (id: number) => {
   if (quizStore.currentQuestion == id) {
     return "process";
@@ -29,4 +28,23 @@ const stepColor = (id: number) => {
     />
   </el-steps>
 </template>
-<style scoped></style>
+<style scoped>
+.el-step ::v-deep(.is-process) {
+  border-color: hsl(338, 85%, 46%);
+  color: hsl(338, 85%, 46%);
+}
+.el-step ::v-deep(.is-finish) {
+  border-color: hsl(338, 85%, 46%);
+  color: hsl(338, 85%, 46%);
+}
+.el-step ::v-deep(.is-wait) {
+  border-color: hsl(39, 10%, 40%);
+  color: hsl(39, 10%, 40%);
+}
+.el-step ::v-deep(.el-step__icon) {
+  background: hsl(39, 50%, 92%);
+}
+.el-step ::v-deep(.el-step__line) {
+  background-color: hsl(39, 10%, 40%);
+}
+</style>
