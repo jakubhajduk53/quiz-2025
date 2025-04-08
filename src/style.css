@@ -24,8 +24,8 @@ body,
 @theme {
   --font-montserrat: "Montserrat", sans-serif;
   --color-gray-primary: hsl(39, 15%, 50%);
-  --color-gray-secondary: hsl(39, 50%, 95%);
-  --color-gray-tertiary: hsl(39, 50%, 97%);
+  --color-gray-secondary: hsl(39, 50%, 92%);
+  --color-gray-tertiary: hsl(39, 50%, 95%);
   --color-dark-gray-primary: hsl(39, 10%, 20%);
   --color-dark-gray-secondary: hsl(39, 10%, 30%);
   --color-dark-gray-tertiary: hsl(39, 10%, 40%);

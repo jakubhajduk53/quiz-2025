@@ -18,7 +18,7 @@ onMounted(async () => {
 
 <template>
   <div
-    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[600px] m-5 px-5 py-10 rounded-sm transform -translate-y-25 bg-white/90 shadow-sm"
+    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[600px] min-h-[300px] m-5 px-5 py-10 rounded-sm -translate-y-25 bg-radial from-gray-tertiary to-gray-secondary shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_3px_0px_hsl(39,30%,90%)]"
     v-loading="quizStore.loadingStatus"
   >
     <template v-if="quizStore.quizData">
@@ -27,7 +27,8 @@ onMounted(async () => {
       <div class="flex">
         <el-button
           plain
-          type="primary"
+          color="hsl(338,85%,46%)"
+          class="shadow-[0px_1px_3px_hsla(39,15%,50%,50%)] inset-shadow-[0px_0px_3px_hsl(39,30%,90%)]"
           :size="secondaryButton"
           @click="quizStore.previousQuestion"
           :disabled="quizStore.isFirstQuestion"
@@ -35,10 +36,16 @@ onMounted(async () => {
           PREVIOUS
         </el-button>
         <RouterLink to="results" v-if="quizStore.isLastQuestion" class="ml-3">
-          <el-button type="primary" :size="secondaryButton">END</el-button>
+          <el-button
+            color="hsl(338,85%,46%)"
+            class="shadow-[0px_1px_3px_hsla(39,15%,50%,50%)] inset-shadow-[0px_0px_3px_hsl(39,30%,90%)]"
+            :size="secondaryButton"
+            >END</el-button
+          >
         </RouterLink>
         <el-button
-          type="primary"
+          color="hsl(338,85%,46%)"
+          class="shadow-[0px_1px_3px_hsla(39,15%,50%,50%)] inset-shadow-[0px_0px_3px_hsl(39,30%,90%)]"
           :size="secondaryButton"
           @click="quizStore.nextQuestion"
           v-else
@@ -47,7 +54,10 @@ onMounted(async () => {
         </el-button>
       </div>
     </template>
-    <p v-else-if="quizStore.errorStatus">
+    <p
+      v-else-if="quizStore.errorStatus"
+      class="min-h-[300px] bg-radial from-gray-tertiary to-gray-secondary shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_3px_0px_hsl(39,30%,90%)]"
+    >
       {{ quizStore.errorStatus + ". Please try again later." }}
     </p>
   </div>
