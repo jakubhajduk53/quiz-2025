@@ -5,7 +5,7 @@ import { ElRadio, ElRadioGroup } from "element-plus";
 const quizStore = useQuizStore();
 </script>
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col h-full justify-center gap-2 w-[35em]">
     <div
       v-html="quizStore.getCurrentQuestionText"
       class="text-base md:text-xl font-semibold"
@@ -14,6 +14,7 @@ const quizStore = useQuizStore();
       :model-value="quizStore.userAnswers[quizStore.currentQuestion]"
       @update:model-value="quizStore.saveAnswer($event as string)"
       class="flex justify-center"
+      size="large"
     >
       <el-radio
         v-for="answer in quizStore.getQuestions"
@@ -34,6 +35,12 @@ const quizStore = useQuizStore();
   color: hsl(338, 85%, 46%);
 }
 .el-radio ::v-deep() {
+  --el-radio-text-color: hsl(39, 10%, 40%);
   --el-radio-input-border-color-hover: hsl(338, 85%, 46%);
+  --el-radio-input-border: 1px solid hsl(39, 10%, 40%);
+}
+.el-radio ::v-deep(.el-radio__inner) {
+  background-color: hsl(39, 50%, 95%);
 }
 </style>
+hsl(39, 10%, 40%)

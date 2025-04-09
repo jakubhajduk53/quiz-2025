@@ -22,10 +22,10 @@ const percentage = computed(() => {
 
 <template>
   <div
-    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[600px] m-5 px-5 py-10 rounded-sm -translate-y-25 bg-radial from-gray-tertiary to-gray-secondary shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_3px_0px_hsl(39,30%,90%)]"
+    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[600px] m-5 px-5 py-10 rounded-sm bg-radial from-gray-tertiary to-gray-secondary shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_3px_0px_hsl(39,30%,90%)]"
   >
-    <div class="flex flex-col gap-1">
-      <div v-if="quizStore.getQuizLength">
+    <div class="flex flex-col gap-5">
+      <div v-if="quizStore.getQuizLength" class="flex flex-col gap-3">
         <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
         <el-progress
           :text-inside="true"
