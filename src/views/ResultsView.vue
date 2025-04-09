@@ -60,4 +60,7 @@ const percentage = computed(() => {
 ::v-deep(.el-progress-bar) {
   --el-border-color-lighter: hsl(39, 50%, 85%);
 }
+.el-progress.is-success ::v-deep(.el-progress-bar__inner) {
+  background-color: hsl(338, 85%, 46%);
+}
 </style>
