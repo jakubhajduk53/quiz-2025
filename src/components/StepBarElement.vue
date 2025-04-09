@@ -17,7 +17,7 @@ const stepColor = (id: number) => {
   <el-steps
     :active="quizStore.getCurrentQuestionId"
     align-center
-    class="flex gap-1 md:gap-3"
+    class="flex items-center mb-1 w-[20em] h-10 gap-1 md:gap-3"
   >
     <el-step
       v-for="i in quizStore.getQuizLength"
@@ -30,8 +30,8 @@ const stepColor = (id: number) => {
 </template>
 <style scoped>
 .el-step ::v-deep(.is-process) {
-  border-color: hsl(338, 85%, 46%);
-  color: hsl(338, 85%, 46%);
+  border-color: hsl(338, 85%, 30%);
+  color: hsl(338, 85%, 30%);
 }
 .el-step ::v-deep(.is-finish) {
   border-color: hsl(338, 85%, 46%);
