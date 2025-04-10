@@ -8,7 +8,7 @@ const quizStore = useQuizStore();
   <div class="flex flex-col h-full justify-center gap-2 md:w-[35em]">
     <div
       v-html="quizStore.getCurrentQuestionText"
-      class="text-base md:text-xl font-semibold"
+      class="text-base md:text-xl font-bold"
     ></div>
     <el-radio-group
       :model-value="quizStore.userAnswers[quizStore.currentQuestion]"
@@ -43,4 +43,3 @@ const quizStore = useQuizStore();
   background-color: hsl(39, 50%, 95%);
 }
 </style>
-hsl(39, 10%, 40%)
