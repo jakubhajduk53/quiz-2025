@@ -5,7 +5,7 @@ import { ElRadio, ElRadioGroup } from "element-plus";
 const quizStore = useQuizStore();
 </script>
 <template>
-  <div class="flex flex-col h-full justify-center gap-2 w-[35em]">
+  <div class="flex flex-col h-full justify-center gap-2 md:w-[35em]">
     <div
       v-html="quizStore.getCurrentQuestionText"
       class="text-base md:text-xl font-semibold"
