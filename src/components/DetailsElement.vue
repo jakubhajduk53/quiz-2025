@@ -15,7 +15,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="w-[100vw] max-w-[500px]">
+  <div class="max-w-[80vw]">
     <el-table :data="details" border :row-class-name="rowClassName">
       <el-table-column label="Index" type="index" width="100" align="center" />
       <el-table-column
