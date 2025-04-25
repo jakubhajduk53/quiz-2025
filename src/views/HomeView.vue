@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ElButton } from "element-plus";
 import { RouterLink } from "vue-router";
-import { useQuizStore } from "../stores/store";
+import { useQuizStore } from "../stores";
 import { onMounted } from "vue";
 import { useScreenSize } from "../composables/useScreenSize";
 

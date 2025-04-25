@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { useQuizStore } from "../stores/store";
+import { useQuizStore } from "../stores";
 import { ElButton, ElProgress } from "element-plus";
 import { ref, onMounted, computed } from "vue";
 import DetailsElement from "../components/DetailsElement.vue";
@@ -26,7 +26,9 @@ const percentage = computed(() => {
   >
     <div class="flex flex-col gap-3 md:gap-5">
       <div v-if="quizStore.getQuizLength" class="flex flex-col gap-3">
-        <p>Your Score: {{ score }}/{{ quizStore.getQuizLength }}</p>
+        <p class="text-xl md:text-3xl font-semibold">
+          Score: {{ score }}/{{ quizStore.getQuizLength }}
+        </p>
         <el-progress
           :text-inside="true"
           :stroke-width="24"
