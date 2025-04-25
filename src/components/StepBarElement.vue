@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useQuizStore } from "../stores/store";
+import { useQuizStore } from "../stores";
 import { ElSteps, ElStep } from "element-plus";
 
 const quizStore = useQuizStore();

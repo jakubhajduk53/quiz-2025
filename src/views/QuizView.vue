@@ -3,7 +3,7 @@ import QuizElement from "../components/QuizElement.vue";
 import StepBarElement from "../components/StepBarElement.vue";
 import { ElButton } from "element-plus";
 import { RouterLink } from "vue-router";
-import { useQuizStore } from "../stores/store";
+import { useQuizStore } from "../stores";
 import { onMounted } from "vue";
 import { useScreenSize } from "../composables/useScreenSize";
 

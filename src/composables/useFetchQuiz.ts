@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import type { QuizResponse } from "../interfaces/interfaces";
+import type { QuizResponse } from "../interfaces";
 
 export const useFetchQuiz = () => {
   const result = ref<QuizResponse>();

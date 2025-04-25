@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { useFetchQuiz } from "../composables/useFetchQuiz";
-import type { AnswerDetail, State } from "../interfaces/interfaces";
+import type { AnswerDetail, State } from "../interfaces";
 
 export const useQuizStore = defineStore("quiz", {
   state: (): State => ({

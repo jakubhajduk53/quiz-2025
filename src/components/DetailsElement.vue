@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useQuizStore } from "../stores/store";
+import { useQuizStore } from "../stores";
 import { ref, onMounted } from "vue";
-import type { AnswerDetail } from "../interfaces/interfaces";
+import type { AnswerDetail } from "../interfaces";
 import { ElTable, ElTableColumn } from "element-plus";
 
 const quizStore = useQuizStore();
@@ -45,6 +45,9 @@ onMounted(() => {
 <style scoped>
 .el-table ::v-deep(.warning-row) {
   --el-table-tr-bg-color: var(--el-color-danger-light-7);
+}
+.el-table ::v-deep() {
+  --el-table-row-hover-bg-color: hsl(39, 50%, 85%);
 }
 .el-table ::v-deep(.success-row) {
   --el-table-tr-bg-color: var(--el-color-success-light-5);
