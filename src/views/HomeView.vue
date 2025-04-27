@@ -26,6 +26,7 @@ onMounted(() => {
     </div>
     <RouterLink to="quiz"
       ><el-button
+        data-test="start-button"
         :size="primaryButton"
         color="hsl(338,85%,46%)"
         class="shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_0px_5px_hsl(39,30%,90%)]"
