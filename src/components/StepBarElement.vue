@@ -17,7 +17,7 @@ const stepColor = (id: number) => {
   <el-steps
     :active="quizStore.getCurrentQuestionId"
     align-center
-    class="flex items-center mb-1 w-[20em] h-10 gap-1 md:gap-3"
+    class="flex items-center w-[30em] max-w-full h-10"
   >
     <el-step
       v-for="i in quizStore.getQuizLength"

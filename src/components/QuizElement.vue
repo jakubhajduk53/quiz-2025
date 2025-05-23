@@ -8,7 +8,7 @@ const quizStore = useQuizStore();
   <div class="flex flex-col h-full justify-center gap-2 md:w-[35em]">
     <div
       v-html="quizStore.getCurrentQuestionText"
-      class="text-base md:text-xl font-bold"
+      class="text-base md:text-xl font-bold overflow-x-auto"
     ></div>
     <el-radio-group
       :model-value="quizStore.userAnswers[quizStore.currentQuestion]"
@@ -20,7 +20,10 @@ const quizStore = useQuizStore();
         v-for="answer in quizStore.getQuestions"
         :key="answer"
         :value="answer"
-        ><div v-html="answer" class="text-sm md:text-base"></div>
+        ><div
+          v-html="answer"
+          class="text-sm md:text-base overflow-x-auto"
+        ></div>
       </el-radio>
     </el-radio-group>
   </div>
