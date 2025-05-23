@@ -18,18 +18,18 @@ onMounted(async () => {
 
 <template>
   <div
-    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[600px] h-[400px] m-5 px-5 py-10 rounded-sm bg-radial from-gray-tertiary to-gray-secondary shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_3px_0px_hsl(39,30%,90%)]"
+    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[800px] h-[500px] max-w-[90vw] overflow-x-auto m-5 px-5 py-10 rounded-sm bg-radial from-gray-tertiary to-gray-secondary shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_3px_0px_hsl(39,30%,90%)]"
     v-loading="quizStore.loadingStatus"
     element-loading-background="hsl(39, 50%, 92%)"
   >
     <template v-if="quizStore.quizData">
       <div class="flex flex-col w-full h-full justify-center items-center">
-        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10" />
+        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10 my-1 md:my-3" />
         <StepBarElement />
-        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10" />
+        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10 my-1 md:my-3" />
         <QuizElement />
-        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10" />
-        <div class="flex w-full items-end justify-center my-2">
+        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10 my-1 md:my-3" />
+        <div class="flex w-full items-end justify-center gap-5">
           <el-button
             plain
             color="hsl(338,85%,46%)"
@@ -61,7 +61,7 @@ onMounted(async () => {
             NEXT
           </el-button>
         </div>
-        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10" />
+        <hr class="text-[hsl(39,10%,20%)] w-full opacity-10 my-1 md:my-3" />
       </div>
     </template>
     <p
