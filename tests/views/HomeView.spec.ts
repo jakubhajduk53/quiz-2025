@@ -1,4 +1,4 @@
-import { expect, test, vi } from "vitest";
+import { expect, test } from "vitest";
 import { mount } from "@vue/test-utils";
 import HomeView from "../../src/views/HomeView.vue";
 import { createPinia } from "pinia";

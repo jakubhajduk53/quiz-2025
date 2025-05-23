@@ -37,6 +37,7 @@ onMounted(async () => {
             :size="secondaryButton"
             @click="quizStore.previousQuestion"
             :disabled="quizStore.isFirstQuestion"
+            data-test="previous-button"
           >
             PREVIOUS
           </el-button>
@@ -45,6 +46,7 @@ onMounted(async () => {
               color="hsl(338,85%,46%)"
               class="shadow-[0px_1px_3px_hsla(39,15%,50%,50%)] inset-shadow-[0px_0px_3px_hsl(39,30%,90%)]"
               :size="secondaryButton"
+              data-test="end-button"
               >END</el-button
             >
           </RouterLink>
@@ -53,6 +55,7 @@ onMounted(async () => {
             class="shadow-[0px_1px_3px_hsla(39,15%,50%,50%)] inset-shadow-[0px_0px_3px_hsl(39,30%,90%)]"
             :size="secondaryButton"
             @click="quizStore.nextQuestion"
+            data-test="next-button"
             v-else
           >
             NEXT
