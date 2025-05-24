@@ -47,7 +47,7 @@ onMounted(() => {
   --el-table-tr-bg-color: var(--el-color-danger-light-7);
 }
 .el-table ::v-deep() {
-  --el-table-row-hover-bg-color: hsl(39, 50%, 85%);
+  --el-table-row-hover-bg-color: transparent;
 }
 .el-table ::v-deep(.success-row) {
   --el-table-tr-bg-color: var(--el-color-success-light-5);
