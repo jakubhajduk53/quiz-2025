@@ -18,7 +18,7 @@ onMounted(async () => {
 
 <template>
   <div
-    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[800px] h-[500px] max-w-[90vw] overflow-x-auto m-5 px-5 py-10 rounded-sm bg-radial from-gray-tertiary to-gray-secondary shadow-[0px_3px_5px_hsla(39,15%,50%,50%)] inset-shadow-[0px_3px_0px_hsl(39,30%,90%)]"
+    class="flex flex-col justify-center items-center text-center gap-5 md:gap-10 w-[800px] h-[500px] max-w-[90vw] max-h-[60vh] overflow-x-auto px-3 md:px-5 py-3 md:py-5 rounded-sm bg-radial from-gray-tertiary to-gray-secondary shadow-[-3px_3px_0px_hsla(39,20%,25%,10%)] inset-shadow-[-3px_3px_0px_hsla(39,20%,95%,10%)] border-2 border-[hsla(39,10%,20%,5%)]"
     v-loading="quizStore.loadingStatus"
     element-loading-background="hsl(39, 50%, 92%)"
   >
