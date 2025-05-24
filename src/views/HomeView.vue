@@ -20,7 +20,7 @@ onMounted(() => {
   >
     <div class="flex flex-col items-center gap-1 md:gap-3">
       <div class="text-xl md:text-3xl font-bold">Random 10 questions</div>
-      <div class="text-sm md:text-base text-dark-gray-secondary w-[20em]">
+      <div class="text-base md:text-xl text-dark-gray-secondary w-[20em]">
         From free to use, user-contributed trivia question database
       </div>
     </div>
