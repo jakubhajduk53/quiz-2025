@@ -2,13 +2,13 @@
 
 ## 📏 Font Size
 
-| Element | Tailwind Classes            |
-|---------|-----------------------------|
-| `h1`    | `text-3xl md:text-5xl`      |
-| `h2`    | `text-xl md:text-3xl`       |
-| `h3`    | `text-base md:text-xl`      |
-| `h4`    | `text-sm md:text-base`      |
-| `h5`    | `text-xs md:text-sm`        |
+| Element | Tailwind Classes       |
+| ------- | ---------------------- |
+| `h1`    | `text-3xl md:text-5xl` |
+| `h2`    | `text-xl md:text-3xl`  |
+| `h3`    | `text-base md:text-xl` |
+| `h4`    | `text-sm md:text-base` |
+| `h5`    | `text-xs md:text-sm`   |
 
 ## 🅱️ Font Weight
 
@@ -18,10 +18,12 @@
 
 ## 🎨 Color Palette
 
-### 🌞 Light Theme  
+### 🌞 Light Theme
+
 [View palette](https://coolors.co/palette/006d77-83c5be-edf6f9-ffddd2-e29578)
 
-### 🌚 Dark Theme  
+### 🌚 Dark Theme
+
 [View palette](https://coolors.co/palette/ffbc42-d81159-8f2d56-218380-73d2de)
 
 ### Gray
@@ -61,31 +63,41 @@
 
 ## 📦 Spacing
 
-**Margin:**  
-- `m-5`, `m-3`, `m-0`, `my-2`
+**Margin:**
 
-**Padding:**  
-- `px-3`, `px-5` (main container)  
+- `m-5`, `m-3`, `m-0`,
+
+**Padding:**
+
+- `px-3`, `px-5` (main container)
 - `py-5`, `py-10` (main container)
 
-**Gap:**  
+**Gap:**
+
 - `gap-10`, `gap-5`, `gap-3`, `gap-1`, `gap-0`
 
 ## 📏 Width
 
-- `w-[600px]` – main container  
-- `w-[20em]` – tertiary text  
-- `max-w-[80vw]` – detailed sections  
-- `w-[35em]` – questions/content  
-- `w-full`  
-- `max-w-[8/10]`
+- `w-[800px]` – main container
+- `w-[20em]` – tertiary text
+- `w-full`
+- `max-w-[80vw]` – detailed sections
+- `max-w-[95%]`
+- `max-w-[90%]`
+- `max-w-[30em]` - stepbar
+- `max-w-full`
+- `max-w-[90vw]`
 
 ## 📏 Height
 
-- `h-full`  
-- `h-[400px]`  
-- `min-h-[300px]`  
-- `max-h-[8/10]`
+- `h-full`
+- `h-[500px]` - main container
+- `h-4` - banner
+- `h-6` - banner
+- `min-h-[300px]`
+- `max-h-full`
+- `max-h-[60vh]`
+- `max-h-[80vh]`
 
 ## 🟦 Border Radius
 
@@ -94,6 +106,7 @@
 ## 🕶️ Opacity
 
 - `opacity-10` – e.g., for `hr`
+- `40%` – pattern fill
 
 ## 🔤 Fonts
 
