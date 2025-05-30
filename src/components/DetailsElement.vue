@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useQuizStore } from "../stores";
-import { ref, onMounted } from "vue";
-import type { AnswerDetail } from "../interfaces";
 import { ElTable, ElTableColumn } from "element-plus";
+import { ref, onMounted } from "vue";
+import { useQuizStore } from "../stores";
+import type { AnswerDetail } from "../interfaces";
 
 const quizStore = useQuizStore();
 const details = ref<AnswerDetail[]>([]);

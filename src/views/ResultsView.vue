@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
-import { useQuizStore } from "../stores";
 import { ElButton, ElProgress } from "element-plus";
+import { RouterLink } from "vue-router";
 import { ref, onMounted, computed } from "vue";
-import DetailsElement from "../components/DetailsElement.vue";
+import { useQuizStore } from "../stores";
 import { useScreenSize } from "../composables/useScreenSize";
+import DetailsElement from "../components/DetailsElement.vue";
 
 const { secondaryButton } = useScreenSize();
 

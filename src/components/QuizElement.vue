@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useQuizStore } from "../stores";
 import { ElRadio, ElRadioGroup } from "element-plus";
+import { useQuizStore } from "../stores";
 
 const quizStore = useQuizStore();
 </script>

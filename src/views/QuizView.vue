@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import QuizElement from "../components/QuizElement.vue";
-import StepBarElement from "../components/StepBarElement.vue";
 import { ElButton } from "element-plus";
+import { onMounted } from "vue";
 import { RouterLink } from "vue-router";
 import { useQuizStore } from "../stores";
-import { onMounted } from "vue";
+import QuizElement from "../components/QuizElement.vue";
+import StepBarElement from "../components/StepBarElement.vue";
 import { useScreenSize } from "../composables/useScreenSize";
 
 const { secondaryButton } = useScreenSize();
