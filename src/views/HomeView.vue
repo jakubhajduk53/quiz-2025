@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ElButton } from "element-plus";
+import { onMounted } from "vue";
 import { RouterLink } from "vue-router";
 import { useQuizStore } from "../stores";
-import { onMounted } from "vue";
 import { useScreenSize } from "../composables/useScreenSize";
 
 const { primaryButton } = useScreenSize();

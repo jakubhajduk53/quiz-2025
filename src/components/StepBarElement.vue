@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useQuizStore } from "../stores";
 import { ElSteps, ElStep } from "element-plus";
+import { useQuizStore } from "../stores";
 
 const quizStore = useQuizStore();
 const stepColor = (id: number) => {
