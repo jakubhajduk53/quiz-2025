@@ -1,5 +1,5 @@
-import { expect, test } from "vitest";
-import { mount } from "@vue/test-utils";
+import { describe, expect, test } from "vitest";
+import { mount, flushPromises } from "@vue/test-utils";
 import QuizView from "../../src/views/QuizView.vue";
 import { createPinia } from "pinia";
 import router from "../../src/router";
@@ -39,42 +39,91 @@ const mockQuizData = {
   ],
 };
 
-test("Switching pages", async () => {
-  const pinia = createPinia();
-  const wrapper = mount(QuizView, {
-    global: {
-      plugins: [pinia, router],
-    },
+describe("Buttons & Pagination", () => {
+  test("Switching pages", async () => {
+    const pinia = createPinia();
+    const wrapper = mount(QuizView, {
+      global: {
+        plugins: [pinia, router],
+      },
+    });
+
+    const store = useQuizStore();
+
+    store.quizData = mockQuizData;
+    store.currentQuestion = 0;
+
+    await wrapper.vm.$nextTick();
+
+    await wrapper.get('[data-test="next-button"]').trigger("click");
+
+    expect(store.currentQuestion).toBe(1);
+
+    await wrapper.get('[data-test="previous-button"]').trigger("click");
+
+    expect(store.currentQuestion).toBe(0);
   });
 
-  const store = useQuizStore();
+  test("Previous button is disabled on first question", async () => {
+    const pinia = createPinia();
+    const wrapper = mount(QuizView, {
+      global: {
+        plugins: [pinia, router],
+      },
+    });
 
-  store.quizData = mockQuizData;
-  store.currentQuestion = 0;
+    const store = useQuizStore();
 
-  await wrapper.vm.$nextTick();
+    store.quizData = mockQuizData;
+    store.currentQuestion = 0;
 
-  await wrapper.get('[data-test="next-button"]').trigger("click");
+    await wrapper.vm.$nextTick();
 
-  expect(store.currentQuestion).toBe(1);
-});
+    const previousButton = wrapper.get('[data-test="previous-button"]');
 
-test("Previous button is disabled on first question", async () => {
-  const pinia = createPinia();
-  const wrapper = mount(QuizView, {
-    global: {
-      plugins: [pinia, router],
-    },
+    expect(previousButton.attributes()).toHaveProperty("disabled");
   });
 
-  const store = useQuizStore();
+  test("End button on last question", async () => {
+    const pinia = createPinia();
+    const wrapper = mount(QuizView, {
+      global: {
+        plugins: [pinia, router],
+      },
+    });
 
-  store.quizData = mockQuizData;
-  store.currentQuestion = 0;
+    const store = useQuizStore();
 
-  await wrapper.vm.$nextTick();
+    store.quizData = mockQuizData;
+    store.currentQuestion = store.getLastQuestionId ?? 0;
 
-  const previousButton = wrapper.get('[data-test="previous-button"]');
+    await wrapper.vm.$nextTick();
 
-  expect(previousButton.attributes()).toHaveProperty("disabled");
+    await expect(wrapper.get('[data-test="end-button"]').isVisible()).toBe(
+      true
+    );
+  });
+
+  test("Navigation works correctly after quiz is finished", async () => {
+    const pinia = createPinia();
+    const wrapper = mount(QuizView, {
+      global: {
+        plugins: [pinia, router],
+      },
+    });
+
+    const store = useQuizStore();
+
+    store.quizData = mockQuizData;
+    store.currentQuestion = store.getLastQuestionId ?? 0;
+
+    await wrapper.vm.$nextTick();
+
+    await wrapper.get('[data-test="end-button"]').trigger("click");
+    await router.isReady();
+
+    await flushPromises();
+
+    expect(router.currentRoute.value.path).toBe("/results");
+  });
 });

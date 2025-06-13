@@ -11,7 +11,7 @@ test("Clicking START button redirect to the quiz", async () => {
       plugins: [pinia, router],
     },
   });
-  wrapper.get('[data-test="start-button"]').trigger("click");
+  await wrapper.get('[data-test="start-button"]').trigger("click");
   await router.isReady();
   expect(router.currentRoute.value.path).toBe("/quiz");
 });
